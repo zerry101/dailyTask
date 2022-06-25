@@ -1,0 +1,53 @@
+<p>booklisting works!</p>
+
+<h1>title here</h1>
+<p>{{ bookList[0].title }}</p>
+<br />
+<br />
+<h1 *ngFor="let items of bookList">
+  <p>title here :-{{ items.title }}</p>
+
+  <br />
+  <br />
+
+  Categories here:-
+  <ul *ngFor="let book_category of items.category">
+    <li>{{ book_category }}</li>
+  </ul>
+
+  <br />
+  <br />
+
+  <!-- <ul *ngFor="let item of items"></ul>  -->
+
+  <h1>Author Details</h1>
+  <p>email:-{{items.author.email}}</p>
+  <p>Full name:-{{getFullName(items.author)}}</p>
+  <p>Address :- {{ getFullAddress(items.author.address) }}</p>
+
+  <br />
+  <br />
+
+  <h1>ReleaseDate:-{{items.releaseDate| date: 'dd/MM/yyyy'}}</h1>
+
+  <br />
+  <br />
+
+  <h1 >OtherBooks:-</h1>
+
+  <ul *ngFor="let books of items.otherBooks">
+    <li>{{books.title}}</li>
+    <p>ReleaseDate:-{{items.releaseDate| date: 'dd/MM/yyyy'}}</p>
+    <div *ngIf="books.editor!= 'Self'; else  elseBlock ">Full name:-{{getFullName(books.editor)}} </div>
+    <ng-template #elseBlock>Full name:-{{getFullName(items.author)}}</ng-template>
+
+</ul>
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+</h1>
