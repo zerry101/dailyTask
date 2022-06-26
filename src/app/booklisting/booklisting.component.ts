@@ -31,7 +31,7 @@ getFullAddress(region:any){
     // this.fullAddress+=location;
 
   // }
-  return region.city+" "+region.state+" "+region.country+" "+region.address+" "+region.zipcode;
+  return region.city+" "+","+" "+region.state+" "+","+" "+region.country+" "+","+" "+region.address+" "+","+" "+region.zipcode;
 
 }
 

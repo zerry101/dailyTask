@@ -1,4 +1,8 @@
-<div *ngFor="let items of bookList" class="card" style="width: 100%">
+<div
+  *ngFor="let items of bookList"
+  class="card"
+  style="width: 100%; margin-bottom: 1%"
+>
   <div class="card-body">
     <div>
       <h5 class="card-title" style="display: inline-block; width: 30%">
@@ -7,20 +11,59 @@
       <span style="display: inline-block"
         ><div><b>Categories:-</b></div>
       </span>
-      <ul   style="display: inline-block" *ngFor="let book_category of items.category">
+      <ul
+        style="display: inline-block"
+        *ngFor="let book_category of items.category"
+      >
         <span class="badge rounded-pill bg-primary">{{ book_category }}</span>
       </ul>
     </div>
 
+    <!-- author details -->
+
+    <div
+      class="card text-dark bg-light mb-3"
+      style="max-width: 100%; display: inline-block; margin-bottom: 1%"
+ >
+      <div class="card-header" >Author details</div>
+      <div class="card-body"style="margin-top: 1%">
+
+        <div style="margin-bottom: 1%">
+
+          <button type="button" class="btn btn-primary">
+            Full Name :-<span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
+          </button>
+
+        </div>
+        <div style="margin-bottom: 1%">
+
+          <button type="button" class="btn btn-primary">
+            Full adress :-<span class="badge bg-secondary">{{ getFullAddress(items.author.address) }}</span>
+          </button>
+
+        </div>
+
+        <div style="margin-bottom: 1%">
+
+          <button type="button" class="btn btn-primary">
+            Email :-<span class="badge bg-secondary">{{ items.author.email }}</span>
+          </button>
+
+        </div>
+
+        <div style="margin-bottom: 1%">
+
+          <button type="button" class="btn btn-primary">
+            Release Date:- :-<span class="badge bg-secondary">{{ items.releaseDate | date: "dd/MM/yyyy" }}</span>
+          </button>
+
+        </div>
 
 
-
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
   </div>
+  <a href="#" class="btn btn-primary">Go somewhere</a>
 </div>
 
 <span class="badge text-bg-primary">Primary</span>
