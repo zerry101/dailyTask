@@ -20,7 +20,7 @@ export class BooklistingComponent implements OnInit {
 
 
   getFullName(name:any){
-    return name.firstname+name.lastname;
+    return name.firstname+" "+name.lastname;
   }
 
 getFullAddress(region:any){
@@ -33,6 +33,11 @@ getFullAddress(region:any){
   // }
   return region.city+" "+","+" "+region.state+" "+","+" "+region.country+" "+","+" "+region.address+" "+","+" "+region.zipcode;
 
+}
+
+getEditorName(editor:any)
+{
+  return editor.firstname+" "+editor.lastname;
 }
 
 

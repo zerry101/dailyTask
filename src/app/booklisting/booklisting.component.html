@@ -1,3 +1,5 @@
+
+
 <div
   *ngFor="let items of bookList"
   class="card"
@@ -54,7 +56,15 @@
         <div style="margin-bottom: 1%">
 
           <button type="button" class="btn btn-primary">
-            Release Date:- :-<span class="badge bg-secondary">{{ items.releaseDate | date: "dd/MM/yyyy" }}</span>
+            Release Date :-<span class="badge bg-secondary">{{ items.releaseDate | date: "dd/MM/yyyy" }}</span>
+          </button>
+
+        </div>
+
+        <div style="margin-bottom: 1%">
+
+          <button type="button" class="btn btn-primary">
+                Editor's Name:-<span class="badge bg-secondary">{{getEditorName(items.editor)}}</span>
           </button>
 
         </div>
@@ -62,8 +72,68 @@
 
       </div>
     </div>
+
+    <!-- Other books details -->
+
+
+<div *ngFor="let book_details of items.otherBooks">
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          href="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          {{book_details.title}}
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+
+
+          <div class="card-header" >Author details</div>
+          <div class="card-body"style="margin-top: 1%">
+
+            <div style="margin-bottom: 1%">
+
+              <button type="button" class="btn btn-primary">
+                Full Name :-<span class="badge bg-secondary">{{ getFullName(book_details.editor) }}</span>
+              </button>
+
+            </div>
+            <div style="margin-bottom: 1%">
+
+              <button type="button" class="btn btn-primary">
+                Release Date :-<span class="badge bg-secondary">{{ book_details.releaseDate | date: "dd/MM/yyyy" }}</span>
+              </button>
+
+            </div>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+
   </div>
+  <div>
   <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
 
 <span class="badge text-bg-primary">Primary</span>
@@ -94,7 +164,7 @@
   <p>email:-{{ items.author.email }}</p>
   <p>Full name:-{{ getFullName(items.author) }}</p>
   <p>Address :- {{ getFullAddress(items.author.address) }}</p>
-
+  <p>Editors name:-{{getEditorName(items.editor)}}</p>
   <br />
   <br />
 
@@ -121,3 +191,21 @@
   <br />
   <br />
 </h1>
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        href="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        Accordion Item #1
+      </button>
+    </h2>
+
