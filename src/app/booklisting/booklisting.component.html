@@ -1,18 +1,24 @@
-
-
-
-
-<div *ngFor="let items of bookList" class="card" style="width:100% ;">
+<div *ngFor="let items of bookList" class="card" style="width: 100%">
   <div class="card-body">
-    <h5 class="card-title" >{{ items.title }}</h5>
-
-
-    <div class="list-group list-group-horizontal" *ngFor="let book_category of items.category">
-      <span class="badge bg-primary list-group-item ">{{ book_category }}</span>
+    <div>
+      <h5 class="card-title" style="display: inline-block; width: 30%">
+        {{ items.title }}
+      </h5>
+      <span style="display: inline-block"
+        ><div><b>Categories:-</b></div>
+      </span>
+      <ul   style="display: inline-block" *ngFor="let book_category of items.category">
+        <span class="badge rounded-pill bg-primary">{{ book_category }}</span>
+      </ul>
     </div>
 
 
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -20,7 +26,6 @@
 <span class="badge text-bg-primary">Primary</span>
 
 <p>booklisting works!</p>
-
 
 <h1>title here</h1>
 <p>{{ bookList[0].title }}</p>
@@ -43,33 +48,33 @@
   <!-- <ul *ngFor="let item of items"></ul>  -->
 
   <h1>Author Details</h1>
-  <p>email:-{{items.author.email}}</p>
-  <p>Full name:-{{getFullName(items.author)}}</p>
+  <p>email:-{{ items.author.email }}</p>
+  <p>Full name:-{{ getFullName(items.author) }}</p>
   <p>Address :- {{ getFullAddress(items.author.address) }}</p>
 
   <br />
   <br />
 
-  <h1>ReleaseDate:-{{items.releaseDate| date: 'dd/MM/yyyy'}}</h1>
+  <h1>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</h1>
 
   <br />
   <br />
 
-  <h1 >OtherBooks:-</h1>
+  <h1>OtherBooks:-</h1>
 
   <ul *ngFor="let books of items.otherBooks">
-    <li>{{books.title}}</li>
-    <p>ReleaseDate:-{{items.releaseDate| date: 'dd/MM/yyyy'}}</p>
-    <div *ngIf="books.editor!= 'Self'; else  elseBlock ">Full name:-{{getFullName(books.editor)}} </div>
-    <ng-template #elseBlock>Full name:-{{getFullName(items.author)}}</ng-template>
+    <li>{{ books.title }}</li>
+    <p>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</p>
+    <div *ngIf="books.editor != 'Self'; else elseBlock">
+      Full name:-{{ getFullName(books.editor) }}
+    </div>
+    <ng-template #elseBlock
+      >Full name:-{{ getFullName(items.author) }}</ng-template
+    >
+  </ul>
 
-</ul>
-
-
-<br />
-<br />
-<br />
-<br />
-
-
+  <br />
+  <br />
+  <br />
+  <br />
 </h1>
