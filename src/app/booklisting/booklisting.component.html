@@ -106,19 +106,19 @@
         <div class="accordion-body">
 
 
-          <div class="card-header" >Author details</div>
+          <div class="card-header" >Book details</div>
           <div class="card-body"style="margin-top: 1%">
 
             <div  style="margin-bottom: 1%">
 
               <button *ngIf="book_details.editor != 'Self'; else elseBlock" type="button" class="btn btn-primary">
-                Full Name :-<span class="badge bg-secondary">{{ getFullName(book_details.editor) }}</span>
+                Editor's Name :-<span class="badge bg-secondary">{{ getFullName(book_details.editor) }}</span>
               </button>
 
 
               <ng-template #elseBlock>
                 <button type="button" class="btn btn-primary">
-                  Full name:- <span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
+                  Editor's Name:- <span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
                 </button>
               </ng-template>
 
