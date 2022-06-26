@@ -2,9 +2,10 @@
 
 <div
   *ngFor="let items of bookList"
-  class="card"
-  style="width: 100%; margin-bottom: 1%"
+  class="card d-grid gap-50"
+  style="width: 80%; margin: 3% auto; ;"
 >
+
   <div class="card-body">
     <div>
       <h5 class="card-title" style="display: inline-block; width: 30%">
@@ -87,7 +88,7 @@
           data-bs-toggle="collapse"
           data-bs-target="#collapseOne"
           href="#collapseOne"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-controls="collapseOne"
         >
           {{book_details.title}}
@@ -95,7 +96,7 @@
       </h2>
       <div
         id="collapseOne"
-        class="accordion-collapse collapse show"
+        class="accordion-collapse collapse"
         aria-labelledby="headingOne"
         data-bs-parent="#accordionExample"
       >
@@ -105,13 +106,23 @@
           <div class="card-header" >Author details</div>
           <div class="card-body"style="margin-top: 1%">
 
-            <div style="margin-bottom: 1%">
+            <div  style="margin-bottom: 1%">
 
-              <button type="button" class="btn btn-primary">
+              <button *ngIf="book_details.editor != 'Self'; else elseBlock" type="button" class="btn btn-primary">
                 Full Name :-<span class="badge bg-secondary">{{ getFullName(book_details.editor) }}</span>
               </button>
 
+
+              <ng-template #elseBlock>
+                <button type="button" class="btn btn-primary">
+                  Full name:- <span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
+                </button>
+              </ng-template>
+
+
             </div>
+
+
             <div style="margin-bottom: 1%">
 
               <button type="button" class="btn btn-primary">
@@ -131,14 +142,25 @@
 
 
   </div>
-  <div>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+
 </div>
 
-<span class="badge text-bg-primary">Primary</span>
 
-<p>booklisting works!</p>
+
+
+
+
+
+
+
+
+
+<p>------------------------------------------------------------------------------------------</p>
+
+
+
+
+<!-- <p>booklisting works!</p>
 
 <h1>title here</h1>
 <p>{{ bookList[0].title }}</p>
@@ -158,7 +180,7 @@
   <br />
   <br />
 
-  <!-- <ul *ngFor="let item of items"></ul>  -->
+
 
   <h1>Author Details</h1>
   <p>email:-{{ items.author.email }}</p>
@@ -207,5 +229,5 @@
       >
         Accordion Item #1
       </button>
-    </h2>
+    </h2> -->
 
