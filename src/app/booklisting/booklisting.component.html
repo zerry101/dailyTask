@@ -1,4 +1,6 @@
 <div *ngFor="let items of bookList; let indexOfelement = index">
+
+
   <p style="text-align: center">
     <b>Card index is :- {{ indexOfelement }}</b>
   </p>
@@ -15,7 +17,7 @@
           style="display: inline-block"
           *ngFor="let book_category of items.category"
         >
-          <span class="badge rounded-pill bg-primary">{{ book_category }}</span>
+          <span   class="badge rounded-pill bg-primary">{{ book_category }}</span>
         </ul>
       </div>
 
@@ -52,17 +54,14 @@
 
           <div style="margin-bottom: 1%">
             <button type="button" class="btn btn-primary">
-              Release Date :-<span class="badge bg-secondary">{{
-                items.releaseDate | date: "dd/MM/yyyy"
-              }}</span>
+              Release Date :-<span class="badge bg-secondary">{{items.releaseDate | date: "dd/MM/yyyy"}}</span>
             </button>
           </div>
 
           <div style="margin-bottom: 1%">
             <button type="button" class="btn btn-primary">
               Editor's Name:-<span class="badge bg-secondary">{{
-                getEditorName(items.editor)
-              }}</span>
+                getEditorName(items.editor)}}</span>
             </button>
           </div>
         </div>
