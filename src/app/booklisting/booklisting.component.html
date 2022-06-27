@@ -1,169 +1,142 @@
-
-
-<div  *ngFor="let items of bookList;let indexOfelement=index">
-
- <p style="text-align: center;"> <b>Card index is :- {{indexOfelement}}</b></p>
-<div
-
-  class="card "
-  style="width: 80%; margin: 3% auto; "
->
-
-  <div class="card-body">
-    <div>
-      <h5 class="card-title" style="display: inline-block; width: 40%">
-        {{ items.title }}
-      </h5>
-      <span style="display: inline-block"
-        ><div><b>Categories:-</b></div>
-      </span>
-      <ul
-        style="display: inline-block"
-        *ngFor="let book_category of items.category"
-      >
-        <span class="badge rounded-pill bg-primary">{{ book_category }}</span>
-      </ul>
-    </div>
-
-    <!-- author details -->
-
-    <div
-      class="card text-dark bg-light mb-3"
-      style="max-width: 100%; display: inline-block; margin-bottom: 1%"
- >
-      <div class="card-header" >Author details</div>
-      <div class="card-body"style="margin-top: 1%">
-
-        <div style="margin-bottom: 1%">
-
-          <button type="button" class="btn btn-primary">
-            Full Name :-<span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
-          </button>
-
-        </div>
-        <div style="margin-bottom: 1%">
-
-          <button type="button" class="btn btn-primary">
-            Full adress :-<span class="badge bg-secondary">{{ getFullAddress(items.author.address) }}</span>
-          </button>
-
-        </div>
-
-        <div style="margin-bottom: 1%">
-
-          <button type="button" class="btn btn-primary">
-            Email :-<span class="badge bg-secondary">{{ items.author.email }}</span>
-          </button>
-
-        </div>
-
-        <div style="margin-bottom: 1%">
-
-          <button type="button" class="btn btn-primary">
-            Release Date :-<span class="badge bg-secondary">{{ items.releaseDate | date: "dd/MM/yyyy" }}</span>
-          </button>
-
-        </div>
-
-        <div style="margin-bottom: 1%">
-
-          <button type="button" class="btn btn-primary">
-                Editor's Name:-<span class="badge bg-secondary">{{getEditorName(items.editor)}}</span>
-          </button>
-
-        </div>
-
-
-      </div>
-    </div>
-
-    <!-- Other books details -->
-
-<div>
-  <p style="font-size: 3vh;"> <i>  Other Books Details:-</i></p>
-</div>
-<div *ngFor="let book_details of items.otherBooks">
-
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button
-          class="accordion-button"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
-          href="#collapseOne"
-          aria-expanded="false"
-          aria-controls="collapseOne"
+<div *ngFor="let items of bookList; let indexOfelement = index">
+  <p style="text-align: center">
+    <b>Card index is :- {{ indexOfelement }}</b>
+  </p>
+  <div class="card" style="width: 80%; margin: 3% auto">
+    <div class="card-body">
+      <div>
+        <h5 class="card-title" style="display: inline-block; width: 40%">
+          {{ items.title }}
+        </h5>
+        <span style="display: inline-block">
+          <div><b>Categories:-</b></div>
+        </span>
+        <ul
+          style="display: inline-block"
+          *ngFor="let book_category of items.category"
         >
-          {{book_details.title}}
-        </button>
-      </h2>
+          <span class="badge rounded-pill bg-primary">{{ book_category }}</span>
+        </ul>
+      </div>
+
+      <!-- author details -->
+
       <div
-        id="collapseOne"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
+        class="card text-dark bg-light mb-3"
+        style="max-width: 100%; display: inline-block; margin-bottom: 1%"
       >
-        <div class="accordion-body">
+        <div class="card-header">Author details</div>
+        <div class="card-body" style="margin-top: 1%">
+          <div style="margin-bottom: 1%">
+            <button type="button" class="btn btn-primary">
+              Full Name :-<span class="badge bg-secondary">{{
+                getFullName(items.author)
+              }}</span>
+            </button>
+          </div>
+          <div style="margin-bottom: 1%">
+            <button type="button" class="btn btn-primary">
+              Full adress :-<span class="badge bg-secondary">{{
+                getFullAddress(items.author.address)
+              }}</span>
+            </button>
+          </div>
 
+          <div style="margin-bottom: 1%">
+            <button type="button" class="btn btn-primary">
+              Email :-<span class="badge bg-secondary">{{
+                items.author.email
+              }}</span>
+            </button>
+          </div>
 
-          <div class="card-header" >Book details</div>
-          <div class="card-body"style="margin-top: 1%">
+          <div style="margin-bottom: 1%">
+            <button type="button" class="btn btn-primary">
+              Release Date :-<span class="badge bg-secondary">{{
+                items.releaseDate | date: "dd/MM/yyyy"
+              }}</span>
+            </button>
+          </div>
 
-            <div  style="margin-bottom: 1%">
+          <div style="margin-bottom: 1%">
+            <button type="button" class="btn btn-primary">
+              Editor's Name:-<span class="badge bg-secondary">{{
+                getEditorName(items.editor)
+              }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
-              <button *ngIf="book_details.editor != 'Self'; else elseBlock" type="button" class="btn btn-primary">
-                Editor's Name :-<span class="badge bg-secondary">{{ getFullName(book_details.editor) }}</span>
+      <!-- Other books details -->
+
+      <div>
+        <p style="font-size: 3vh"><i> Other Books Details:-</i></p>
+      </div>
+      <div *ngFor="let book_details of items.otherBooks">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                href="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                {{ book_details.title }}
               </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <div class="card-header">Book details</div>
+                <div class="card-body" style="margin-top: 1%">
+                  <div style="margin-bottom: 1%">
+                    <button
+                      *ngIf="book_details.editor != 'Self'; else elseBlock"
+                      type="button"
+                      class="btn btn-primary"
+                    >
+                      Editor's Name :-<span class="badge bg-secondary">{{
+                        getFullName(book_details.editor)
+                      }}</span>
+                    </button>
 
+                    <ng-template #elseBlock>
+                      <button type="button" class="btn btn-primary">
+                        Editor's Name:-
+                        <span class="badge bg-secondary">{{
+                          getFullName(items.author)
+                        }}</span>
+                      </button>
+                    </ng-template>
+                  </div>
 
-              <ng-template #elseBlock>
-                <button type="button" class="btn btn-primary">
-                  Editor's Name:- <span class="badge bg-secondary">{{ getFullName(items.author) }}</span>
-                </button>
-              </ng-template>
-
-
+                  <div style="margin-bottom: 1%">
+                    <button type="button" class="btn btn-primary">
+                      Release Date :-<span class="badge bg-secondary">{{
+                        book_details.releaseDate | date: "dd/MM/yyyy"
+                      }}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-
-
-            <div style="margin-bottom: 1%">
-
-              <button type="button" class="btn btn-primary">
-                Release Date :-<span class="badge bg-secondary">{{ book_details.releaseDate | date: "dd/MM/yyyy" }}</span>
-              </button>
-
-            </div>
-            </div>
-
-
+          </div>
         </div>
       </div>
     </div>
-    </div>
-</div>
-
-
-
   </div>
-
 </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-<p style="width:100% ; background-color: black; height: 2%;">--</p>
-
-
-
+<p style="width: 100%; background-color: black; height: 2%">--</p>
 
 <!-- <p>booklisting works!</p>
 
@@ -172,67 +145,66 @@
 <br />
 <br />
 <h1 *ngFor="let items of bookList">
-  <p>title here :-{{ items.title }}</p>
+<p>title here :-{{ items.title }}</p>
 
-  <br />
-  <br />
+<br />
+<br />
 
-  Categories here:-
-  <ul *ngFor="let book_category of items.category">
-    <li>{{ book_category }}</li>
-  </ul>
+Categories here:-
+<ul *ngFor="let book_category of items.category">
+  <li>{{ book_category }}</li>
+</ul>
 
-  <br />
-  <br />
+<br />
+<br />
 
 
 
-  <h1>Author Details</h1>
-  <p>email:-{{ items.author.email }}</p>
-  <p>Full name:-{{ getFullName(items.author) }}</p>
-  <p>Address :- {{ getFullAddress(items.author.address) }}</p>
-  <p>Editors name:-{{getEditorName(items.editor)}}</p>
-  <br />
-  <br />
+<h1>Author Details</h1>
+<p>email:-{{ items.author.email }}</p>
+<p>Full name:-{{ getFullName(items.author) }}</p>
+<p>Address :- {{ getFullAddress(items.author.address) }}</p>
+<p>Editors name:-{{getEditorName(items.editor)}}</p>
+<br />
+<br />
 
-  <h1>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</h1>
+<h1>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</h1>
 
-  <br />
-  <br />
+<br />
+<br />
 
-  <h1>OtherBooks:-</h1>
+<h1>OtherBooks:-</h1>
 
-  <ul *ngFor="let books of items.otherBooks">
-    <li>{{ books.title }}</li>
-    <p>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</p>
-    <div *ngIf="books.editor != 'Self'; else elseBlock">
-      Full name:-{{ getFullName(books.editor) }}
-    </div>
-    <ng-template #elseBlock
-      >Full name:-{{ getFullName(items.author) }}</ng-template
-    >
-  </ul>
+<ul *ngFor="let books of items.otherBooks">
+  <li>{{ books.title }}</li>
+  <p>ReleaseDate:-{{ items.releaseDate | date: "dd/MM/yyyy" }}</p>
+  <div *ngIf="books.editor != 'Self'; else elseBlock">
+    Full name:-{{ getFullName(books.editor) }}
+  </div>
+  <ng-template #elseBlock
+    >Full name:-{{ getFullName(items.author) }}</ng-template
+  >
+</ul>
 
-  <br />
-  <br />
-  <br />
-  <br />
+<br />
+<br />
+<br />
+<br />
 </h1>
 
 
 <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button
-        class="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseOne"
-        href="#collapseOne"
-        aria-expanded="true"
-        aria-controls="collapseOne"
-      >
-        Accordion Item #1
-      </button>
-    </h2> -->
-
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button
+      class="accordion-button"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseOne"
+      href="#collapseOne"
+      aria-expanded="true"
+      aria-controls="collapseOne"
+    >
+      Accordion Item #1
+    </button>
+  </h2> -->
