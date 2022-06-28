@@ -31,5 +31,9 @@ export class AdministratorComponent implements OnInit {
     role.active=!role.active;
   }
 
+  deactive_checbox(ability:any)
+  {
+    ability.active=!ability.active;
+  }
 
 }
