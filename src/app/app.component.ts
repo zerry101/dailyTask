@@ -1,21 +1,34 @@
 import { Component } from '@angular/core';
-import { UsersDataService } from './booklisting/services/users-data.service';
+// import { UsersDataService } from './booklisting/services/users-data.service';
+
+import { UserDataService } from './booklisting/services/user-data.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+// data:UserDataService;
+
 export class AppComponent {
   title = 'dailytask';
-  users:any
-  constructor(private userData:UsersDataService)
-  {
+
+
+  user_data:any;
+
+  constructor(private userData:UserDataService){
+
+
+    this.userData.users().subscribe((data)=>{
+      this.user_data=data
+      console.log(this.user_data);
+    });
 
   }
 
-  getPostData(){
-    this.userData.users().subscribe(res=>{console.log(res);
+  // getPostData(){
 
-    })
-  }
+  // }
+
+
 }
