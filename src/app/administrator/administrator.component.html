@@ -1,1 +1,47 @@
-<p>administrator works!</p>
+<div *ngFor="let role of role_categories; let i = index">
+  <div>
+    <li>
+      <input type="radio" name="name" (click)="show_permission(role) ; role_active(role) " />{{
+        role.category
+      }}
+      <!-- <input type="text" [(ngModel)]="permission_array"> -->
+      <!-- <div>
+        {{permission_array}}
+      </div> -->
+    </li>
+  </div>
+</div>
+
+<!-- <div *ngFor"></div> -->
+
+<div *ngFor="let item of permission_array">
+  <input type="checkbox" checked />
+  {{ item }}
+</div>
+
+<br />
+<br />
+<br />
+<br />
+
+<div *ngFor="let ability of role_categories">
+  <div *ngFor="let each_permission of ability.permissions">
+    <div *ngIf="ability.active == true; else content">
+
+
+        <input type="checkbox" checked name="name" />  {{ each_permission }}
+
+      </div>
+      <ng-template #content>
+
+
+        <input type="checkbox"  name="name"/>{{ each_permission }}
+
+      </ng-template>
+
+
+    </div>
+
+
+  </div>
+
