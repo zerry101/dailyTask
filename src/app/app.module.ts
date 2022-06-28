@@ -12,10 +12,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AdministratorComponent } from './administrator/administrator.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BooklistingComponent
+    BooklistingComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
