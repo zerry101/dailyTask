@@ -18,6 +18,8 @@ import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DirstyleDirective } from './dirstyle.directive';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutCompanyComponent } from './about-company/about-company.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { DirstyleDirective } from './dirstyle.directive';
     AboutComponent,
     UserComponent,
     PageNotFoundComponent,
-    DirstyleDirective
+    DirstyleDirective,
+    AboutMeComponent,
+    AboutCompanyComponent
   ],
   imports: [
     BrowserModule,
