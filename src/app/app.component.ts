@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Roles } from './administrator/data/Roles';
 import { Datatype } from './datat.service';
-
+import { UserdataService } from './services/userdata.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,10 +20,20 @@ import { Datatype } from './datat.service';
 // console.log(Roles);
 
 
-
+// const userData1:{name:string, age:number , id:number}[]=[];
 
 export class AppComponent {
   title = 'dailytask';
+
+ userData77:any;
+
+constructor(private ud:UserdataService){
+  console.log(this.ud.users);
+this.userData77=this.ud.users();
+}
+
+
+
 
   getData(){
     const data:Datatype={
