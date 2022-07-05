@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Roles } from './administrator/data/Roles';
+import { Datatype } from './datat.service';
 
 @Component({
   selector: 'app-root',
@@ -24,5 +25,12 @@ import { Roles } from './administrator/data/Roles';
 export class AppComponent {
   title = 'dailytask';
 
+  getData(){
+    const data:Datatype={
+        name:'hosds',
+        id:10,
+        Indian:true
+    }
+  }
 
 }

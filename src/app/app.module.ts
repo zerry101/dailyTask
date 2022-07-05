@@ -13,11 +13,21 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdministratorComponent } from './administrator/administrator.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { UserComponent } from './user/user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DirstyleDirective } from './dirstyle.directive';
 @NgModule({
   declarations: [
     AppComponent,
     BooklistingComponent,
-    AdministratorComponent
+    AdministratorComponent,
+    HomeComponent,
+    AboutComponent,
+    UserComponent,
+    PageNotFoundComponent,
+    DirstyleDirective
   ],
   imports: [
     BrowserModule,
