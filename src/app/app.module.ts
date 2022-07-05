@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DirstyleDirective } from './dirstyle.directive';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { AboutCompanyComponent } from './about-company/about-company.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { AboutCompanyComponent } from './about-company/about-company.component';
     PageNotFoundComponent,
     DirstyleDirective,
     AboutMeComponent,
-    AboutCompanyComponent
+    AboutCompanyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

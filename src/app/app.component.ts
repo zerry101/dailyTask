@@ -28,7 +28,7 @@ export class AppComponent {
  userData77:any;
 
 constructor(private ud:UserdataService){
-  console.log(this.ud.users);
+  // console.log(this.ud.users);
 this.userData77=this.ud.users();
 }
 
